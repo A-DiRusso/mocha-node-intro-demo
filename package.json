@@ -1,0 +1,28 @@
+{
+  "name": "coffee-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "db:create": "createdb coffee-orders-app",
+    "db:init": "psql -f schema.sql coffee-orders-app && psql -f seed.sql coffee-orders-app",
+    "db:destroy": "dropdb coffee-orders-app",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
+    "test": "mocha",
+    "test:watch": "mocha -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^9.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1"
+  }
+}

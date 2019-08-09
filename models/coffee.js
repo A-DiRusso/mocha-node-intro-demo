@@ -9,11 +9,11 @@ class Coffee {
   }
   static getById(id) {
     return db.one(`select * from coffee where id=${id}`)
-      .then((oneCoffeeData) => {
-        const coffeeInstance = new Coffee(oneCoffeeData.id,
-                                          oneCoffeeData.name,
-                                          oneCoffeeData.bespoke,
-                                          oneCoffeeData.size
+      .then(coffeeData => {
+        const coffeeInstance = new Coffee(coffeeData.id,
+                                          coffeeData.name,
+                                          coffeeData.bespoke,
+                                          coffeeData.size
                                           );
         return coffeeInstance;
       })
